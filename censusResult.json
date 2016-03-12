@@ -1,0 +1,115 @@
+{
+  "result": {
+    "input": {
+      "location": {
+        "x": -88.9,
+        "y": 41.7
+      },
+      "benchmark": {
+        "id": "4",
+        "isDefault": false,
+        "benchmarkDescription": "Public Address Ranges - Current Benchmark",
+        "benchmarkName": "Public_AR_Current"
+      },
+      "vintage": {
+        "id": "4",
+        "isDefault": true,
+        "vintageName": "Current_Current",
+        "vintageDescription": "Current Vintage - Current Benchmark"
+      }
+    },
+    "geographies": {
+      "Counties": [
+        {
+          "OID": 27590177657988,
+          "STATE": "17",
+          "FUNCSTAT": "A",
+          "AREAWATER": 8568512,
+          "NAME": "DeKalb County",
+          "LSADC": "06",
+          "CENTLON": "-088.7703244",
+          "BASENAME": "DeKalb",
+          "INTPTLAT": "+41.8946125",
+          "COUNTYCC": "H1",
+          "MTFCC": "G4020",
+          "COUNTY": "037",
+          "GEOID": "17037",
+          "CENTLAT": "+41.8932203",
+          "INTPTLON": "-088.7689910",
+          "AREALAND": 1635193036,
+          "COUNTYNS": "00422190",
+          "OBJECTID": 725
+        }
+      ],
+      "Census Tracts": [
+        {
+          "OID": 20790177681357,
+          "STATE": "17",
+          "FUNCSTAT": "S",
+          "NAME": "Census Tract 18",
+          "AREAWATER": 2461607,
+          "LSADC": "CT",
+          "CENTLON": "-088.8465854",
+          "BASENAME": "18",
+          "INTPTLAT": "+41.7389372",
+          "MTFCC": "G5020",
+          "COUNTY": "037",
+          "GEOID": "17037001800",
+          "CENTLAT": "+41.7394238",
+          "INTPTLON": "-088.8442925",
+          "AREALAND": 377887376,
+          "OBJECTID": 43364,
+          "TRACT": "001800"
+        }
+      ],
+      "2010 Census Blocks": [
+        {
+          "BLKGRP": "2",
+          "OID": 210403979330173,
+          "FUNCSTAT": "S",
+          "STATE": "17",
+          "AREAWATER": 1708,
+          "NAME": "Block 2127",
+          "SUFFIX": "",
+          "LSADC": "BK",
+          "CENTLON": "-088.9022934",
+          "LWBLKTYP": "B",
+          "BASENAME": "2127",
+          "BLOCK": "2127",
+          "INTPTLAT": "+41.7117908",
+          "MTFCC": "G5040",
+          "COUNTY": "037",
+          "GEOID": "170370018002127",
+          "CENTLAT": "+41.7059959",
+          "INTPTLON": "-088.9023162",
+          "AREALAND": 6443547,
+          "OBJECTID": 5053161,
+          "TRACT": "001800"
+        }
+      ],
+      "States": [
+        {
+          "OID": 27490100360203,
+          "STATE": "17",
+          "FUNCSTAT": "A",
+          "NAME": "Illinois",
+          "AREAWATER": 6200595440,
+          "LSADC": "00",
+          "CENTLON": "-089.1500867",
+          "STUSAB": "IL",
+          "BASENAME": "Illinois",
+          "INTPTLAT": "+40.1028754",
+          "DIVISION": "3",
+          "MTFCC": "G4000",
+          "STATENS": "01779784",
+          "GEOID": "17",
+          "CENTLAT": "+40.1006034",
+          "INTPTLON": "-089.1526108",
+          "REGION": "2",
+          "AREALAND": 143794855314,
+          "OBJECTID": 28
+        }
+      ]
+    }
+  }
+}
