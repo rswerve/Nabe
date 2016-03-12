@@ -15,26 +15,7 @@
 <body>
 
 <div id='map'></div>
-<script>
-var request = window.superagent
-mapboxgl.accessToken = 'pk.eyJ1IjoiYXRpZ2hpIiwiYSI6ImNpbG43OTRlcjAyZ2l1aG0xdnIxZGliczcifQ.xGmAblnDZCyuNOpFLWfT9Q';
-var map = new mapboxgl.Map({
-    container: 'map', // container id
-    style: 'mapbox://styles/atighi/cilocmidf000s9mkmkmiyqc6v', //stylesheet location
-    center: [-88.89, 41.7], // starting position
-    zoom: 7 // starting zoom
-});
-
-map.addControl(new mapboxgl.Navigation({position: 'bottom-left'})); // position is optional
-
-map.on('click', function(data) {
-  var lng = data.lngLat.lng
-  var lat = data.lngLat.lat
-  // http://geocoding.geo.census.gov/geocoder/geographies/coordinates?x=-88.9&y=41.7&benchmark=4&vintage=4&format=json
-  var e = data && data.originalEvent;
-  console.log(data.lngLat)
-});
-</script>
+<script src='map.js'></script>
 
 </body>
 </html>

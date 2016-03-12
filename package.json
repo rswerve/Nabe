@@ -9,6 +9,7 @@
   "author": "Mazdak Atighi",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.13.4",
     "superagent": "^1.8.0"
   }
 }
