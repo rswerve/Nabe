@@ -1,6 +1,4 @@
-// var request = require('superagent')
 
-var request = window.superagent //http request library
 mapboxgl.accessToken = 'pk.eyJ1IjoiYXRpZ2hpIiwiYSI6ImNpbG43OTRlcjAyZ2l1aG0xdnIxZGliczcifQ.xGmAblnDZCyuNOpFLWfT9Q';
 var map = new mapboxgl.Map({
     container: 'map', // container id
@@ -11,20 +9,19 @@ var map = new mapboxgl.Map({
 
 map.addControl(new mapboxgl.Navigation({position: 'bottom-left'})); // no position = top-right
 
+//get lat/lng from click and send those coordinates to tracts route in server.js
 map.on('click', function(data) {
   console.log('clicked, data ', data)
   var lng = data.lngLat.lng
   var lat = data.lngLat.lat
-  var url = 'http://geocoding.geo.census.gov/geocoder/geographies/coordinates?x' + lng + '&y=' + lat + '41.7&benchmark=4&vintage=4&format=json'
-  request
-  .get(url)
-  .set('Content-Length', "contentLength")
-  .set('Content-Type', 'application/x-www-form-urlencoded')
-  .end(function(err, res){
-    if (err){
-      console.error(err)
-    } else {
-      console.log(res.body)
+  var url = 'http://geocoding.geo.census.gov/geocoder/geographies/coordinates?x=' + lng + '&y=' + lat + '&benchmark=4&vintage=4&format=json'
+  $.ajax({
+    url: '/tracts',
+    type: 'GET',
+    data: url,
+    dataType: 'json',
+    success: function(response){
+      console.log('jquery response ', response)
     }
   })
 });
