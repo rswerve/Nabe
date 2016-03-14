@@ -11,13 +11,11 @@ map.addControl(new mapboxgl.Navigation({position: 'bottom-left'})); // no positi
 
 //get lat/lng from click and send those coordinates to tracts route in server.js
 map.on('click', function(data) {
-  var lng = data.lngLat.lng
-  var lat = data.lngLat.lat
-  var url = 'http://geocoding.geo.census.gov/geocoder/geographies/coordinates?x=' + lng + '&y=' + lat + '&benchmark=4&vintage=4&format=json'
+  var lngLat = {lng: data.lngLat.lng, lat:data.lngLat.lat}
   $.ajax({
     url: '/tracts',
     type: 'GET',
-    data: url,
+    data: lngLat,
     dataType: 'json',
     success: function(response){
       console.log('jquery response ', response)
