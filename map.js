@@ -11,7 +11,6 @@ var map = new mapboxgl.Map({
 map.addControl(new mapboxgl.Navigation({position: 'bottom-left'})); // no position = top-right
 //get lat/lng from click and send those coordinates to tracts route in server.js
 map.on('click', function(data) {
-  map.style._layers["acs2014-5yr-b15003-14000us170318"].layout.visibility = "none"
   console.log('zoom ', map.style.z)
   console.log(map)
   var lngLat = {lng: data.lngLat.lng, lat:data.lngLat.lat}
