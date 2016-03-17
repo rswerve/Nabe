@@ -36,21 +36,27 @@ map.on('click', function(data) {
 
 map.on('zoomend', function(data){
   if (map.style.z > 8){
-    map.featuresIn({}, function(err, features){
-      if (err){
-        console.error(err)
-      } else {
-        for (var i = 0; i < features.length; i++){
+    // map.featuresIn({}, function(err, features){
+    //   if (err){
+    //     console.error(err)
+    //   } else {
+        // for (var i = 0; i < features.length; i++){
           // if (features[i].layer.id === "acs2014-5yr-b15003-14000us170318" && 
           //     features[i].properties.B15003022 !== 1688420 &&
           //     features[i].properties.B15003022 > 300) {
             // map.setFilter("acs2014-5yr-b15003-14000us170318", ["!=", "name", "Illinois"])
-            map.setFilter("acs2014-5yr-b15003-14000us170318", ["in", "B15003022, Error", 0, 100])
+
+            map.setFilter("acs2014-5yr-b15003-14000us170318", ["all", ['>', 'B15003022', 1000], ['<', 'B15003022', 2000]])
+            // map.setFilter("acs2014-5yr-b15003-14000us170318", ["in", "B15003022", (300, 30000)])
             map.setPaintProperty("acs2014-5yr-b15003-14000us170318", 'fill-color', '#df8888')
+            map.setPaintProperty("acs2014-5yr-b15003-14000us170318", 'fill-opacity', 0.5)
+            // map.setFilter("acs2014-5yr-b15003-14000us170318", ["all", ['>', 'B15003022', 2000], ['<', 'B15003022', 10000]])
+            // map.setPaintProperty("acs2014-5yr-b15003-14000us170318", 'fill-color', '#A22020')
+            // map.setPaintProperty("acs2014-5yr-b15003-14000us170318", 'fill-opacity', 0.5)
           // }
-        }
+        // }
         // console.log('zoomend features ', features)
-      }
-    })
+    //   }
+    // })
   }
 })
