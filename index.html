@@ -1,27 +1,29 @@
 <!DOCTYPE html>
-<html ng-app="myApp">
+<html>
 <head>
     <meta charset='utf-8' />
     <title></title>
-    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular-route.js"></script>
-    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.15.0/mapbox-gl.js'></script>
-    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.15.0/mapbox-gl.css' rel='stylesheet' />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.js"></script>
+    <!-- <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' /> -->
+    <!-- <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.15.0/mapbox-gl.css' rel='stylesheet' /> -->
     <style>
         body { margin:0; padding:0; }
         #map { position:absolute; top:0; bottom:0; width:800px; }
         #outside { position:relative; top: 50px; bottom:0; left: 900px; }
     </style>
 </head>
-<body>
-<div id='map'></div>
-<!-- <div class="container" ng-controller="sideController"></div> -->
-<div id='outside'><div ng-view=''></div>Something outside the map.</div>
-<script src='map.js'></script>
+<body ng-app="myApp">
+<!-- <div id='map'></div> -->
+<div ng-view></div>
+<!-- <div class="container" ng-controller="sideController"> -->
+<!-- <div id='outside'><div ng-view></div>Something outside the map.</div> -->
+<!-- </div> -->
+<!-- <script src='map.js'></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular-route.js"></script>
+    <!-- <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.15.0/mapbox-gl.js'></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.js"></script>
+<script src="app.js"></script>
 <script src='sideController.js'></script>
 <script src='sideFactory.js'></script>
-<script src="app.js"></script>
 </body>
 </html>

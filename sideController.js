@@ -1,6 +1,6 @@
-angular.module('myApp.sideController', [])
+angular.module('myApp')
 
-.controller('sideController', function($scope, sideFactory){
+.controller('sidesController', function($scope, sideFactory){
   $scope.test = 'hello'
 
 })
