@@ -26,8 +26,8 @@ app.get('/tracts', function(req, res){
       console.error(err)
     } else {
       var tract_number = response.body.result.geographies['Census Tracts'][0].GEOID
-      console.log(response.body.result.geographies['Census Tracts'][0].GEOID)
       console.log([lng, lat])
+      console.log(response.body.result.geographies['Census Tracts'][0].GEOID)
 res.end(tract_number)
     }
   })

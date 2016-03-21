@@ -4,7 +4,7 @@ var map = new mapboxgl.Map({
     container: 'map', // container id
     style: 'mapbox://styles/atighi/cilocmidf000s9mkmkmiyqc6v', //stylesheet location
     center: [-88.89, 41.7], // starting position
-    zoom: 7 // starting zoom
+    zoom: 4 // starting zoom
 
 });
 
@@ -28,35 +28,45 @@ map.on('click', function(data) {
   })
 });
 
-// map.on('move', function(e){
+$( "#outside" ).click(function() {
+  console.log('click registered')
+  map.setLayoutProperty ("ma_25", 'visibility', 'visible')
+  map.setLayoutProperty ("ba_35", 'visibility', 'visible')
+});
+
+
+// map.on('zoomend', function(e){
+//   console.log('zoom level ', map.style.z)
 //   // console.log('e ', e)
 //   // console.log('move ', map)
-//   map.setLayoutProperty ("acs2014-5yr-b15003-14000us170318", 'visibility', 'none')
+//   map.setLayoutProperty ("ba_35", 'visibility', 'none')
+//   map.setLayoutProperty ("ma_25", 'visibility', 'none')
 // })
 
-map.on('zoomend', function(data){
-  if (map.style.z > 8){
-    // map.featuresIn({}, function(err, features){
-    //   if (err){
-    //     console.error(err)
-    //   } else {
-        // for (var i = 0; i < features.length; i++){
-          // if (features[i].layer.id === "acs2014-5yr-b15003-14000us170318" && 
-          //     features[i].properties.B15003022 !== 1688420 &&
-          //     features[i].properties.B15003022 > 300) {
-            // map.setFilter("acs2014-5yr-b15003-14000us170318", ["!=", "name", "Illinois"])
+// map.on('zoomend', function(data){
+//   if (map.style.z > 8){
 
-            map.setFilter("acs2014-5yr-b15003-14000us170318", ["all", ['>', 'B15003022', 1000], ['<', 'B15003022', 2000]])
-            // map.setFilter("acs2014-5yr-b15003-14000us170318", ["in", "B15003022", (300, 30000)])
-            map.setPaintProperty("acs2014-5yr-b15003-14000us170318", 'fill-color', '#df8888')
-            map.setPaintProperty("acs2014-5yr-b15003-14000us170318", 'fill-opacity', 0.5)
-            // map.setFilter("acs2014-5yr-b15003-14000us170318", ["all", ['>', 'B15003022', 2000], ['<', 'B15003022', 10000]])
-            // map.setPaintProperty("acs2014-5yr-b15003-14000us170318", 'fill-color', '#A22020')
-            // map.setPaintProperty("acs2014-5yr-b15003-14000us170318", 'fill-opacity', 0.5)
-          // }
-        // }
-        // console.log('zoomend features ', features)
-    //   }
-    // })
-  }
-})
+//     map.featuresIn({}, function(err, features){
+//       if (err){
+//         console.error(err)
+//       } else {
+//         // for (var i = 0; i < features.length; i++){
+//           // if (features[i].layer.id === "acs2014-5yr-b15003-14000us170318" && 
+//           //     features[i].properties.B15003022 !== 1688420 &&
+//           //     features[i].properties.B15003022 > 300) {
+//             // map.setFilter("acs2014-5yr-b15003-14000us170318", ["!=", "name", "Illinois"])
+
+//             // map.setFilter("acs2014-5yr-b15003-14000us170318", ["in", "B15003022", (300, 30000)])
+//             map.setFilter("ma_percent", ["all", ['>', 'ma_percent', 60]])
+//             map.setPaintProperty("ma_percent", 'fill-color', '#A22020')
+//             map.setPaintProperty("ma_percent", 'fill-opacity', 0.5)
+//             map.setFilter("ba_percent", ["all", ['>', 'ba_percent', 35]])
+//             map.setPaintProperty("ba_percent", 'fill-color', '#df8888')
+//             map.setPaintProperty("ba_percent", 'fill-opacity', 0.5)
+//           // }
+//         // }
+//         console.log('zoomend features ', features)
+//       }
+//     })
+//   }
+// })
