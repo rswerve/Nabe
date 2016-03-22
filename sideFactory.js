@@ -1,6 +1,4 @@
-angular.module('myApp')
-
-.factory('sideFactory', function($http){
+myApp.factory('sideFactory', function($http){
   var service = {}
 
 

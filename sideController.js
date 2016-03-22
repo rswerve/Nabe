@@ -1,6 +1,6 @@
-angular.module('myApp')
-
-.controller('sidesController', function($scope, sideFactory){
+myApp.controller('sideController', function($scope, sideFactory){
   $scope.test = 'hello'
-
+  $scope.change = function(){
+    console.log(map.getCenter())
+  }
 })

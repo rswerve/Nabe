@@ -4,7 +4,12 @@ myApp.config(function($routeProvider){
   $routeProvider
 
   .when('/', {
-    templateURL: 'side.html',
+    templateUrl: 'side.html',
     controller: 'sideController'
   })
 })
+
+// myApp.controller('sidesController', function($scope, sideFactory){
+//   $scope.test = 'hello'
+
+// })

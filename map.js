@@ -30,9 +30,13 @@ map.on('click', function(data) {
 
 $( "#outside" ).click(function() {
   console.log('click registered')
-  map.setLayoutProperty ("ma_25", 'visibility', 'visible')
-  map.setLayoutProperty ("ba_35", 'visibility', 'visible')
+  // map.setLayoutProperty ("ma_25", 'visibility', 'visible')
+  // map.setLayoutProperty ("ba_35", 'visibility', 'visible')
 });
+
+function change(){
+  console.log('changed')
+}
 
 
 // map.on('zoomend', function(e){
