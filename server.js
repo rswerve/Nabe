@@ -28,7 +28,21 @@ app.get('/tracts', function(req, res){
       var tract_number = response.body.result.geographies['Census Tracts'][0].GEOID
       console.log([lng, lat])
       console.log(response.body.result.geographies['Census Tracts'][0].GEOID)
-res.end(tract_number)
+      res.end(tract_number)
+    }
+  })
+})
+
+// test data flow to factory
+app.get('/testdata', function(req, res){
+  var aUrl = 'http://census.ire.org/geo/1.0/boundary-set/tracts/17031809200'
+  request
+  .get(aUrl)
+  .end(function(err, response){
+    if (err){
+      console.error(err)
+    } else {
+      res.send(response.body)
     }
   })
 })

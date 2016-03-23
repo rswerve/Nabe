@@ -7,9 +7,9 @@ myApp.config(function($routeProvider){
     templateUrl: 'side.html',
     controller: 'sideController'
   })
+
+  .when('/detail', {
+    templateUrl: 'detail.html',
+    controller: 'detailController'
+  })
 })
-
-// myApp.controller('sidesController', function($scope, sideFactory){
-//   $scope.test = 'hello'
-
-// })

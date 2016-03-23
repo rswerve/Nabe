@@ -3,8 +3,8 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiYXRpZ2hpIiwiYSI6ImNpbG43OTRlcjAyZ2l1aG0xdnIxZ
 var map = new mapboxgl.Map({
     container: 'map', // container id
     style: 'mapbox://styles/atighi/cilocmidf000s9mkmkmiyqc6v', //stylesheet location
-    center: [-88.89, 41.7], // starting position
-    zoom: 4 // starting zoom
+    center: [-89.75, 40.04], // starting position
+    zoom: 6 // starting zoom
 
 });
 
@@ -28,15 +28,12 @@ map.on('click', function(data) {
   })
 });
 
-$( "#outside" ).click(function() {
+$("#outside").click(function() {
   console.log('click registered')
-  // map.setLayoutProperty ("ma_25", 'visibility', 'visible')
-  // map.setLayoutProperty ("ba_35", 'visibility', 'visible')
+  window.location = '/#/detail'
+  // $location.path('/detail')
+  // window.location.href = ('/#/detail')
 });
-
-function change(){
-  console.log('changed')
-}
 
 
 // map.on('zoomend', function(e){
