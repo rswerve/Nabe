@@ -3,20 +3,47 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiYXRpZ2hpIiwiYSI6ImNpbG43OTRlcjAyZ2l1aG0xdnIxZ
 var map = new mapboxgl.Map({
     container: 'map', // container id
     style: 'mapbox://styles/atighi/cilocmidf000s9mkmkmiyqc6v', //stylesheet location
-    center: [-88.89, 41.7], // starting position
-    zoom: 4 // starting zoom
+    center: [-89.75, 40.04], // starting position
+    zoom: 6 // starting zoom
 
 });
 
 map.addControl(new mapboxgl.Navigation({position: 'bottom-left'})); // no position = top-right
 //get lat/lng from click and send those coordinates to tracts route in server.js
 map.on('click', function(data) {
-  map.featuresAt([data.point.x, data.point.y], { radius: 10 }, function(err, features) {
-  // console.log('features ', features);
-  });
+  // map.featuresAt([data.point.x, data.point.y], { radius: 10 }, function(err, features) {
+  // // console.log('features ', features);
+  // });
+  var lngLat = {lng: data.lngLat.lng, lat:data.lngLat.lat}
+  var ireCoords = [data.lngLat.lat, data.lngLat.lng]
+  var lng = data.lngLat.lng
+  var lat = data.lngLat.lat
+  var detailUrl = 'http://127.0.0.1:3000/#/detail/' + lat + '/' + lng
+
+
+  // angular.element(document.getElementById('outside')).scope().$$childHead.setCoords(ireCoords)
+
+
+  var tooltip = new mapboxgl.Popup(data)
+  .setLngLat(data.lngLat)
+  .setHTML("<p>'Hello'</p>")
+  .setHTML("<a href='"+ detailUrl +"'>Details</a>")
+  .addTo(map);
   // console.log('zoom ', map.style.z)
   // console.log(map)
-  var lngLat = {lng: data.lngLat.lng, lat:data.lngLat.lat}
+
+  // console.log('angular element ', angular.element(document.getElementById('outside')).scope())
+
+  // angular.element(document.getElementById('outside')).scope().$$childHead.getRequest(lngLat)
+
+  // console.log('angular element ', angular.element(document.getElementById('outside')).scope().$$childHead.testDetail)
+
+  // var scope = angular.element(document.getElementById('outside')).scope()
+  // scope.$apply(function(){
+  //   scope.testDetail = 'I changed you'
+  //   console.log(angular.element(document.getElementById('outside')).scope())
+  // })
+
   $.ajax({
     url: '/tracts',
     type: 'GET',
@@ -24,16 +51,21 @@ map.on('click', function(data) {
     dataType: 'json',
     success: function(response){
       console.log('jquery response ', response)
+      angular.element(document.getElementById('outside')).scope().$$childHead.setTract(response)
     }
   })
 });
 
-$( "#outside" ).click(function() {
-  console.log('click registered')
-  map.setLayoutProperty ("ma_25", 'visibility', 'visible')
-  map.setLayoutProperty ("ba_35", 'visibility', 'visible')
-});
-
+// $("#outside").click(function() {
+//   console.log('click registered')
+//   angular.element(document.getElementById('outside')).scope().$$childHead.change('ba_percent')
+//   window.location = '/#/detail'
+//   // $location.path('/detail')
+//   // window.location.href = ('/#/detail')
+// });
+// window.onload = function (){
+// (angular.element(document.getElementById('outside')).scope().getRequest())
+// }
 
 // map.on('zoomend', function(e){
 //   console.log('zoom level ', map.style.z)

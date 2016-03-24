@@ -1,0 +1,28 @@
+<header>Nabe</header>
+<!-- <script>$scope.getRequest()</script> -->
+<!-- <div>{{test}}</div>
+<div>{{testDetail}}</div>
+<div>{{fromFactory}}</div>
+<div>{{coords}}</div> -->
+<div>Check out {{placeName}}!</div>
+<ul>
+<li><div>Population: {{placeData.P1.P001001}}</div></li>
+<li><div>Median Age: {{placeData.P13.P013001}}</div></li>
+</ul>
+<p></p>
+
+
+
+<nav>
+<a href ng-click="yelp = !yelp">Yelp!</a>
+Instagram
+Zillow
+</nav>
+<div ng-repeat="business in yelpData" ng-hide="yelp">
+<ul>
+<li><a href={{business.url}}>{{business.name}}</a><br/>
+{{business.categories[0][0]}}<br/>
+<img src={{business.rating_img_url_small}}><br/>
+<img src={{business.image_url}}></li>
+</ul>
+</div>
