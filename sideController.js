@@ -1,7 +1,8 @@
 myApp.controller('sideController', function($scope, sideFactory, detailFactory){
   $scope.id = 'side'
-  $scope.setCoords = function(coords){
-    detailFactory.coords = coords
+  $scope.setTract = function(tract){
+    console.log('side set tract called ', tract)
+    detailFactory.tract = tract.toString()
   }
   $scope.factWord = detailFactory.word
   $scope.change = function(name){

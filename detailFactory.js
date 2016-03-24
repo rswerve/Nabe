@@ -1,8 +1,8 @@
 myApp.factory('detailFactory', function($http, $q){
   var service = {}
-  // service.coords
+  service.tract
   service.word = 'from the detail factory'
-  
+
   service.getData = function(){
     return $http({
       method: 'GET',
@@ -34,8 +34,14 @@ myApp.factory('detailFactory', function($http, $q){
   })
   }
 
-
-
+  service.censusIreData = function(tract){
+    return $q(function(resolve, reject){
+      ire_census.do_with_sf1_data(tract, function(data){
+      console.log('factory ireData ', data.data['2010'])
+      resolve(data)
+    })
+  })
+  }
 
 
 return service

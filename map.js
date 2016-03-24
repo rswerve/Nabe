@@ -51,6 +51,7 @@ map.on('click', function(data) {
     dataType: 'json',
     success: function(response){
       console.log('jquery response ', response)
+      angular.element(document.getElementById('outside')).scope().$$childHead.setTract(response)
     }
   })
 });
