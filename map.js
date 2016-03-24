@@ -18,7 +18,7 @@ map.on('click', function(data) {
   var ireCoords = [data.lngLat.lat, data.lngLat.lng]
   var lng = data.lngLat.lng
   var lat = data.lngLat.lat
-  var detailUrl = 'http://127.0.0.1:3000/#/detail/' + lat + '/' + lng
+  var detailUrl = '/#/detail/' + lat + '/' + lng
 
 
   // angular.element(document.getElementById('outside')).scope().$$childHead.setCoords(ireCoords)
