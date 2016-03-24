@@ -1,20 +1,32 @@
-myApp.controller('detailController',  function($scope, detailFactory){
+myApp.controller('detailController',  function($scope, detailFactory, sideFactory, $routeParams){
+  console.log($routeParams)
+  $scope.id = 'detail'
+  // $scope.setCoords = function(coords){
+  //   detailFactory.coords.coordinates = coords
+  // }
   $scope.testDetail = 'details wired up'
-  $scope.fromFactory = detailFactory.word
+  $scope.fromFactory = sideFactory.test
+  $scope.coords = [$routeParams.lat, $routeParams.lng]
   $scope.getRequest = function(){
-    // detailFactory.getData()
     detailFactory.getData()
     .then(function(data){
       $scope.dataGot = data.data.simple_shape.coordinates[0][0]
     })
-    
-    // console.log('getting')
-    // console.log(detailFactory.word)
-    // console.log('function returns ', detailFactory.getData())
-    // return detailFactory.getData()
-
   }
+
+  $scope.ire = function(coords){
+    console.log('controller ire called')
+    detailFactory.censusIre(coords)
+    .then(function(data){
+      $scope.placeData = data.objects[2].name
+    })
+      // console.log('placedata ', $scope.placeData)
+    
+  }
+
+  $scope.ire($scope.coords)
   $scope.getRequest()
+  // $scope.setCoords()
 })
 
     // $scope.dataGot = d.value.data.simple_shape.coordinates

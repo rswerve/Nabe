@@ -8,7 +8,7 @@ myApp.config(function($routeProvider){
     controller: 'sideController'
   })
 
-  .when('/detail', {
+  .when('/detail/:lat/:lng', {
     templateUrl: 'detail.html',
     controller: 'detailController'
   })

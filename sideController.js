@@ -1,5 +1,9 @@
-myApp.controller('sideController', function($scope, sideFactory){
-  $scope.test = 'hello'
+myApp.controller('sideController', function($scope, sideFactory, detailFactory){
+  $scope.id = 'side'
+  $scope.setCoords = function(coords){
+    detailFactory.coords = coords
+  }
+  $scope.factWord = detailFactory.word
   $scope.change = function(name){
     var layer = name.srcElement.id
     if (map.getLayoutProperty (layer, 'visibility') === 'none'){
