@@ -6,4 +6,14 @@
 <div>Check out {{placeData}}!</div>
 <p></p>
 
-<div ng-repeat="business in yelpData">{{business.name}}</div>
+
+
+<a href ng-click="yelp = !yelp">Yelp!</a>
+<div ng-repeat="business in yelpData" ng-hide="yelp">
+<ul>
+<li><a href={{business.url}}>{{business.name}}</a><br/>
+{{business.categories[0][0]}}<br/>
+<img src={{business.rating_img_url_small}}><br/>
+<img src={{business.image_url}}></li>
+</ul>
+</div>
