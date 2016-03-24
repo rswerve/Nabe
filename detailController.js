@@ -7,12 +7,6 @@ myApp.controller('detailController',  function($scope, detailFactory, sideFactor
   $scope.testDetail = 'details wired up'
   $scope.fromFactory = sideFactory.test
   $scope.coords = [$routeParams.lat, $routeParams.lng]
-  $scope.getRequest = function(){
-    detailFactory.getData()
-    .then(function(data){
-      $scope.dataGot = data.data.simple_shape.coordinates[0][0]
-    })
-  }
 
   $scope.ire = function(coords){
     console.log('controller ire called')
@@ -20,12 +14,28 @@ myApp.controller('detailController',  function($scope, detailFactory, sideFactor
     .then(function(data){
       $scope.placeData = data.objects[2].name
     })
-      // console.log('placedata ', $scope.placeData)
-    
   }
 
+  $scope.yelp = function(){
+    console.log('yelp controller called')
+    detailFactory.yelp()
+    .then(function(data){
+      console.log('controller get yelp ', data.data.businesses)
+      $scope.yelpData = data.data.businesses
+    })
+  }
+
+
+  // $scope.getRequest = function(){
+  //   detailFactory.getData()
+  //   .then(function(data){
+  //     $scope.dataGot = data.data.simple_shape.coordinates[0][0]
+  //   })
+  // }
+
   $scope.ire($scope.coords)
-  $scope.getRequest()
+  $scope.yelp()
+  // $scope.getRequest()
   // $scope.setCoords()
 })
 

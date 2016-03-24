@@ -2,12 +2,25 @@ myApp.factory('detailFactory', function($http, $q){
   var service = {}
   // service.coords
   service.word = 'from the detail factory'
+  
   service.getData = function(){
     return $http({
       method: 'GET',
       url: '/testdata'
     })
     .then(function(data){
+      return data
+    })
+  }
+
+  service.yelp = function(){
+    console.log('yelp factory called')
+    return $http({
+      method: 'GET',
+      url: '/yelp'
+    })
+    .then(function(data){
+      console.log('factory yelp ', data)
       return data
     })
   }
@@ -22,7 +35,7 @@ myApp.factory('detailFactory', function($http, $q){
   }
 
 
-  // service.yelp = function(yelpCoords)
+
 
 
 return service

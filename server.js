@@ -2,6 +2,7 @@ var express = require("express")
 var app = express()
 var bodyParser = require('body-parser')
 var request = require('superagent')
+var config = require('./config.js')
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({
@@ -30,6 +31,18 @@ app.get('/tracts', function(req, res){
       console.log(response.body.result.geographies['Census Tracts'][0].GEOID)
       res.end(tract_number)
     }
+  })
+})
+
+// make a call to yelp
+app.get('/yelp', function(req, res){
+ config.yelp.search({ term: 'food', ll: '42.04,-87.69' })
+  .then(function (data) {
+    res.send(data)
+    res.end()
+  })
+  .catch(function (err) {
+    console.error(err);
   })
 })
 
