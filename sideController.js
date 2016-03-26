@@ -1,7 +1,6 @@
 myApp.controller('sideController', function($scope, sideFactory, detailFactory){
-  $scope.id = 'side'
   $scope.setTract = function(tract){
-    console.log('side set tract called ', tract)
+    // console.log('side set tract called ', tract)
     detailFactory.tract = tract.toString()
   }
   $scope.factWord = detailFactory.word

@@ -15,14 +15,27 @@
 
 <nav>
 <a href ng-click="yelp = !yelp">Yelp!</a>
-Instagram
-Zillow
+<a href ng-click="instagram = !instagram">Instagram</a>
+<!-- <a href ng-click="trulia = !trulia">Trulia</a> -->
 </nav>
 <div ng-repeat="business in yelpData" ng-hide="yelp">
-<ul>
-<li><a href={{business.url}}>{{business.name}}</a><br/>
-{{business.categories[0][0]}}<br/>
-<img src={{business.rating_img_url_small}}><br/>
-<img src={{business.image_url}}></li>
-</ul>
+  <ul>
+    <li>
+      <a href={{business.url}}>{{business.name}}</a><br/>
+      {{business.categories[0][0]}}<br/>
+      <img src={{business.rating_img_url_small}}><br/>
+      <img src={{business.image_url}}>
+    </li>
+  </ul>
+</div>
+
+<div ng-repeat="photo in instagramData" ng-hide="instagram">
+  <ul>
+    <li>
+      <a href={{photo.link}}><img src={{photo.images.low_resolution.url}}/></a>
+    </li>
+  </ul>
+</div>
+
+
 </div>
