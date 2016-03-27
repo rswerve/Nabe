@@ -1,4 +1,4 @@
-var myApp = angular.module("myApp", ['ngRoute'])
+var myApp = angular.module("myApp", ['ngRoute', 'auth0', 'angular-storage', 'angular-jwt'])
 
 myApp.config(function($routeProvider){
   $routeProvider
@@ -13,3 +13,15 @@ myApp.config(function($routeProvider){
     controller: 'detailController'
   })
 })
+
+myApp.config(function(authProvider){
+  authProvider.init({
+    domain: 'app48837577.auth0.com',
+    clientID: 'ndO9Maaeuw5gtTboVghIMitLRY1cr4Eh'
+  })
+})
+.run(function(auth) {
+  // This hooks al auth events to check everything as soon as the app starts
+  auth.hookEvents();
+});
+

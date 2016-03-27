@@ -46,6 +46,12 @@ myApp.controller('detailController',  function($scope, detailFactory, sideFactor
     })
   }
 
+  $scope.logout = function() {
+    auth.signout();
+    store.remove('profile');
+    store.remove('token');
+  }
+
 
   $scope.ireName($scope.coords)
   $scope.ireData($scope.tract)

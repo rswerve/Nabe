@@ -12,4 +12,10 @@ myApp.controller('sideController', function($scope, sideFactory, detailFactory){
     map.setLayoutProperty (layer, 'visibility', 'none')
     }
   }
+
+  $scope.logout = function() {
+    auth.signout();
+    store.remove('profile');
+    store.remove('token');
+  }
 })
