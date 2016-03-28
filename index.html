@@ -19,17 +19,22 @@
 
     <script src="//cdn.auth0.com/w2/auth0-angular-4.js"> </script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.15.0/mapbox-gl.css' rel='stylesheet' />
+    <link rel="stylesheet" href="main.css">
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
     <style>
-        body { margin:0; padding:0; }
-        #map { position:absolute; top:0; bottom:0; width:800px; }
+       /* body { margin:0; padding:0; }
+        #map { position:absolute; top:50px; bottom:0; width:800px; }
         #outside { position:relative; top: 10px; bottom:0; left: 850px; }
-        header {font-size: 36px; font-family: 'Papyrus'}
+        header {font-size: 36px; font-family: 'Papyrus'}*/
     </style>
 </head>
 <body ng-app="myApp">
-<div id='map'></div>
-<div id='outside'><div ng-view></div></div>
+<div id="container">
+    <div id='map'></div>
+    <div id='outside'><div ng-view></div></div>
+    <span id='details'></span>
+    
+</div>
 <script src='map.js'></script>
 <script src="app.js"></script>
 <script scr='mainController.js'></script>

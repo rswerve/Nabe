@@ -1,4 +1,4 @@
-<header>Nabe</header>
+<header class="sidebar">Nabe</header>
 <!-- <script>$scope.getRequest()</script> -->
 <!-- <div>{{test}}</div>
 <div>{{testDetail}}</div>
@@ -6,8 +6,8 @@
 <div>{{coords}}</div> -->
 <div>Check out {{placeName}}!</div>
 <ul>
-<li><div>Population: {{placeData.P1.P001001}}</div></li>
-<li><div>Median Age: {{placeData.P13.P013001}}</div></li>
+  <li><div>Population: {{placeData.P1.P001001}}</div></li>
+  <li><div>Median Age: {{placeData.P13.P013001}}</div></li>
 </ul>
 <p></p>
 
@@ -18,7 +18,7 @@
 <a href ng-click="instagram = !instagram">Instagram</a>
 <!-- <a href ng-click="trulia = !trulia">Trulia</a> -->
 </nav>
-<div ng-repeat="business in yelpData" ng-hide="yelp">
+<div ng-repeat="business in yelpData" ng-hide="yelp" id="yelpblock">
   <ul>
     <li>
       <a href={{business.url}}>{{business.name}}</a><br/>

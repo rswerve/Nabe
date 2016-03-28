@@ -1,0 +1,63 @@
+#container {
+  position: relative;
+  /*width: 100%;*/
+  /*max-width: 1200px;*/
+  /*background-color: #EBFF12;*/
+
+}
+
+body { 
+  margin:0; padding:0; 
+}
+        
+#map { 
+  /*position: absolute; */
+  height: 700px;
+  width: 65%;
+  /*width: 700px;*/
+  top: 50px; left: 5%; bottom: 0; 
+}
+        
+#outside { 
+  position: absolute;
+  /*width: 500px;*/
+  width: 25%;
+  /*height: 90%;*/
+  left: 70%;
+  top: 50px;
+  padding: 30px;
+  /*float: right;*/
+  /*top: 10px; bottom: 0px; left: 10px; */
+  background-color: #B9BAA9;
+}
+
+.clickOutside {
+  width: 45%;
+  top: 50px;
+  padding: 30px;
+  background-color: #B9BAA9;
+}
+        
+header {
+  font-size: 36px; 
+  font-family: 'Papyrus'
+}
+
+#yelpblock {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  width: 150px;
+
+}
+
+.mapboxgl-popup-anchor-bottom {
+  color: #B9BAA9;
+}
+
+/*input[type="checkbox"] {
+    width: 120px;
+    margin-left: 35px;
+    display: block;
+}
+*/

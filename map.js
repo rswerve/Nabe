@@ -27,7 +27,7 @@ map.on('click', function(data) {
   var tooltip = new mapboxgl.Popup(data)
   .setLngLat(data.lngLat)
   .setHTML("<p>'Hello'</p>")
-  .setHTML("<a href='"+ detailUrl +"'>Details</a>")
+  .setHTML("<div id='popDetail'><a href='"+ detailUrl +"'>Details</a></div>")
   .addTo(map);
   // console.log('zoom ', map.style.z)
   // console.log(map)
@@ -54,6 +54,10 @@ map.on('click', function(data) {
       angular.element(document.getElementById('outside')).scope().$$childHead.setTract(response)
     }
   })
+});
+
+$('#map').on('click', '#popDetail', function() {
+    console.log('popup click detected')
 });
 
 // $("#outside").click(function() {
