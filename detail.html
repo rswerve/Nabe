@@ -29,10 +29,10 @@
   </ul>
 </div>
 
-<div ng-repeat="photo in instagramData" ng-hide="instagram">
+<div ng-repeat="photo in instagramData" ng-hide="instagram" id="instagramblock">
   <ul>
     <li>
-      <a href={{photo.link}}><img src={{photo.images.low_resolution.url}}/></a>
+      <a href={{photo.link}}><img src={{photo.images.low_resolution.url}} height="225" width="225"/></a>
     </li>
   </ul>
 </div>

@@ -55,9 +55,10 @@ map.on('click', function(data) {
     }
   })
 });
-
 $('#map').on('click', '#popDetail', function() {
     console.log('popup click detected')
+    $(".mapboxgl-canvas").toggleClass('active')
+    $("#outside").toggleClass('active')
 });
 
 // $("#outside").click(function() {

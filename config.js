@@ -1,5 +1,5 @@
 var Yelp = require('yelp')
-Instagram = require('instagram-node-lib')
+var Instagram = require('instagram-node-lib')
 
 module.exports.yelp = new Yelp({
   consumer_key: process.env.consumer_key || 'D8sO-Uz4xcb_Znhctwy0Ug',
