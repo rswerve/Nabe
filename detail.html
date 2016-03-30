@@ -1,10 +1,10 @@
-<header class="sidebar">Nabe</header>
+
 <!-- <script>$scope.getRequest()</script> -->
 <!-- <div>{{test}}</div>
 <div>{{testDetail}}</div>
 <div>{{fromFactory}}</div>
 <div>{{coords}}</div> -->
-<div>Check out {{placeName}}!</div>
+<div id="placeName">{{placeName}}</div>
 <ul>
   <li><div>Population: {{placeData.P1.P001001}}</div></li>
   <li><div>Median Age: {{placeData.P13.P013001}}</div></li>
@@ -19,10 +19,10 @@
 <!-- <a href ng-click="trulia = !trulia">Trulia</a> -->
 </nav>
 <div ng-repeat="business in yelpData" ng-hide="yelp" id="yelpblock">
-  <ul>
+  <ul class="listBlocks">
     <li>
-      <a href={{business.url}}>{{business.name}}</a><br/>
       {{business.categories[0][0]}}<br/>
+      <a href={{business.url}}>{{business.name}}</a><br/>
       <img src={{business.rating_img_url_small}}><br/>
       <img src={{business.image_url}}>
     </li>
@@ -30,7 +30,7 @@
 </div>
 
 <div ng-repeat="photo in instagramData" ng-hide="instagram" id="instagramblock">
-  <ul>
+  <ul class="listBlocks">
     <li>
       <a href={{photo.link}}><img src={{photo.images.low_resolution.url}} height="225" width="225"/></a>
     </li>

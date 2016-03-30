@@ -1,8 +1,14 @@
 #container {
   position: relative;
+  height: auto;
+  min-height: 100%;
+  display: block;
+  overflow: hidden;
+  padding-bottom: 150px;
   /*width: 100%;*/
   /*max-width: 1200px;*/
-  /*background-color: #EBFF12;*/
+  background-color: #858585;
+  /*background-color: #dedede;*/
 
 
 }
@@ -16,7 +22,7 @@ body {
   height: 700px;
   width: 65%;
   /*width: 700px;*/
-  top: 50px; left: 5%; bottom: 0;
+  top: 100px;
   perspective: 800px;
 
 }
@@ -35,36 +41,53 @@ body {
   transition-timing-function: easeOutCubic;
   transform: rotateY(20deg);
 }
+
         
 #outside { 
   position: absolute;
+  overflow: auto;
+  height: 600px;
   /*width: 500px;*/
   width: 10%;
-  /*height: 90%;*/
-  left: 70%;
-  top: 50px;
-  padding: 30px;
+  left: 65%;
+  top: 100px;
+  padding-left: 30px;
+  padding-top: 20px;
+  color: white;
+  background-color: yellow;
   /*float: right;*/
   /*top: 10px; bottom: 0px; left: 10px; */
-  background-color: #B9BAA9;
+  /*background-color: #B9BAA9;*/
+  /*background-color: #dedede;*/
   transition: 1s;
   transition-timing-function: easeOutCubic;
 }
 
 #outside.active {
-  width: 35%;
-  left: 60%;
-  top: 100px;
+  overflow: auto;
+  /*height: 300px*/
+  width: 45%;
+  left: 55%;
+  top: 150px;
   transition: 1s;
   transition-timing-function: easeOutCubic;
 }
 
-.clickOutside {
+.clear {
+  clear: both;
+}
+
+/*#placeName {
+  color: white;
+}*/
+
+/*.clickOutside {
   width: 45%;
   top: 50px;
   padding: 30px;
   background-color: #B9BAA9;
-}
+}*/
+
         
 header {
   font-size: 36px; 
@@ -87,6 +110,10 @@ header {
 
 .mapboxgl-popup-anchor-bottom {
   color: #B9BAA9;
+}
+
+.listBlocks {
+    list-style-type: none;
 }
 
 /*input[type="checkbox"] {

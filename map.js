@@ -7,10 +7,13 @@ var map = new mapboxgl.Map({
     zoom: 6 // starting zoom
 
 });
-
+var tooltip
 map.addControl(new mapboxgl.Navigation({position: 'bottom-left'})); // no position = top-right
 //get lat/lng from click and send those coordinates to tracts route in server.js
 map.on('click', function(data) {
+
+
+  
   // map.featuresAt([data.point.x, data.point.y], { radius: 10 }, function(err, features) {
   // // console.log('features ', features);
   // });
@@ -20,15 +23,26 @@ map.on('click', function(data) {
   var lat = data.lngLat.lat
   var detailUrl = '/#/detail/' + lat + '/' + lng
 
+  if ($(".mapboxgl-canvas").hasClass('active')){
+    $(".mapboxgl-canvas").toggleClass('active')
+    $("#outside").toggleClass('active')
+  } else {
+    tooltip = new mapboxgl.Popup(data)
+    .setLngLat(data.lngLat)
+    .setHTML("<div id='popDetail'><a href='"+ detailUrl +"'>Details</a></div>")
+    .addTo(map);
+  }
+
 
   // angular.element(document.getElementById('outside')).scope().$$childHead.setCoords(ireCoords)
+// console.log('active status ', ($(".mapboxgl-canvas").hasClass('active')))
 
+  // tooltip = new mapboxgl.Popup(data)
+  // .setLngLat(data.lngLat)
+  // .setHTML("<p>'Hello'</p>")
+  // .setHTML("<div id='popDetail'><a href='"+ detailUrl +"'>Details</a></div>")
+  // .addTo(map);
 
-  var tooltip = new mapboxgl.Popup(data)
-  .setLngLat(data.lngLat)
-  .setHTML("<p>'Hello'</p>")
-  .setHTML("<div id='popDetail'><a href='"+ detailUrl +"'>Details</a></div>")
-  .addTo(map);
   // console.log('zoom ', map.style.z)
   // console.log(map)
 
@@ -43,7 +57,6 @@ map.on('click', function(data) {
   //   scope.testDetail = 'I changed you'
   //   console.log(angular.element(document.getElementById('outside')).scope())
   // })
-
   $.ajax({
     url: '/tracts',
     type: 'GET',
@@ -54,11 +67,13 @@ map.on('click', function(data) {
       angular.element(document.getElementById('outside')).scope().$$childHead.setTract(response)
     }
   })
+
 });
+
 $('#map').on('click', '#popDetail', function() {
-    console.log('popup click detected')
     $(".mapboxgl-canvas").toggleClass('active')
     $("#outside").toggleClass('active')
+    tooltip.remove()
 });
 
 // $("#outside").click(function() {
