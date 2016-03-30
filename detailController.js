@@ -17,7 +17,9 @@ myApp.controller('detailController',  function($scope, detailFactory, sideFactor
     // console.log('controller ire called')
     detailFactory.censusIre(coords)
     .then(function(data){
+      console.log('ireName ', data)
       $scope.placeName = data.objects[2].name
+      $scope.tractNumber = data.objects[4].name
     })
   }
 

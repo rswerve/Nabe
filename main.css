@@ -151,6 +151,23 @@ nav a:active {
     color: #dae313;
 }
 
+
+#yelpblock a:link {
+    color: #dae313;
+}
+
+#yelpblock a:visited {
+    color: #dae313;
+}
+
+#yelpblock a:hover {
+    color: #dae313;
+    text-decoration: underline;
+}
+
+#yelpblock a:active {
+    color: #dae313;
+}
 /*input[type="checkbox"] {
     width: 120px;
     margin-left: 35px;
