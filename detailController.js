@@ -27,6 +27,7 @@ myApp.controller('detailController',  function($scope, detailFactory, sideFactor
     // console.log('controller ireData called')
     detailFactory.censusIreData(tract)
     .then(function(data){
+      console.log('ireData ', data)
       $scope.placeData = data.data['2010']
     })
   }  
