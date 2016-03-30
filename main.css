@@ -58,7 +58,7 @@ body {
   overflow: auto;
   height: 600px;
   /*width: 500px;*/
-  width: 10%;
+  width: 25%;
   left: 65%;
   top: 100px;
   padding-left: 30px;
@@ -113,45 +113,6 @@ header {
 
 }
 
-#instagramblock {
-  position: relative;
-  display: inline-block;
-  vertical-align: top;
-}
-
-.mapboxgl-popup-anchor-bottom {
-  color: #B9BAA9;
-}
-
-.listBlocks {
-    list-style-type: none;
-}
-
-nav {
-  font-family: 'Bad Script', cursive;
-  color: #dae313;
-  padding-right: 15px;
-  font-size: 24px;
-}
-
-nav a:link {
-    color: #dae313;
-}
-
-nav a:visited {
-    color: #dae313;
-}
-
-nav a:hover {
-    color: #dae313;
-    text-decoration: underline;
-}
-
-nav a:active {
-    color: #dae313;
-}
-
-
 #yelpblock a:link {
     color: #dae313;
 }
@@ -168,6 +129,77 @@ nav a:active {
 #yelpblock a:active {
     color: #dae313;
 }
+
+#instagramblock {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.mapboxgl-popup-anchor-bottom {
+  color: #B9BAA9;
+}
+
+.listBlocks {
+    list-style-type: none;
+}
+
+.placeDetails {
+  margin: 0;
+  padding-left: 5px;
+  padding-top: 20px;
+
+}
+
+.placeDetails li {
+  text-indent: -10px;
+  position: relative;
+  display: inline;
+  vertical-align: top;
+  list-style-type: none;
+  padding-right: 25px;
+  padding-top: 10px;
+}
+
+
+nav {
+  font-family: 'Bad Script', cursive;
+  color: #dae313;
+  font-size: 24px;
+  text-decoration: none;
+}
+
+nav ul {
+  margin: 0;
+  padding-left: 0;
+  padding-top: 20px;
+}
+
+
+nav a:link {
+    color: #dae313;
+    text-decoration: none;
+}
+
+nav a:visited {
+    color: #dae313;
+}
+
+nav a:hover {
+    color: #dae313;
+    text-decoration: underline;
+}
+
+nav a:active {
+    color: #dae313;
+}
+
+nav li {
+  display: inline;
+  padding-right: 30px;
+}
+
+
 /*input[type="checkbox"] {
     width: 120px;
     margin-left: 35px;
