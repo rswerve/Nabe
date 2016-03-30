@@ -26,6 +26,7 @@ map.on('click', function(data) {
   if ($(".mapboxgl-canvas").hasClass('active')){
     $(".mapboxgl-canvas").toggleClass('active')
     $("#outside").toggleClass('active')
+    $(".mapboxgl-ctrl-bottom-right").toggleClass('active')
   } else {
     tooltip = new mapboxgl.Popup(data)
     .setLngLat(data.lngLat)
@@ -73,6 +74,7 @@ map.on('click', function(data) {
 $('#map').on('click', '#popDetail', function() {
     $(".mapboxgl-canvas").toggleClass('active')
     $("#outside").toggleClass('active')
+    $(".mapboxgl-ctrl-bottom-right").toggleClass('active')
     tooltip.remove()
 });
 

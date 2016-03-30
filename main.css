@@ -52,6 +52,20 @@ body {
   transform: rotateY(20deg);
 }
 
+.mapboxgl-ctrl-bottom-right {
+  opacity: 1;
+   transition: opacity 1s;
+   /*transition-timing-function: easeOutExpo;*/
+    transition-delay: .7s;
+   /*-moz-transition: opacity 1s ease-in-out;
+   -webkit-transition: opacity 1s ease-in-out;*/
+}
+
+.mapboxgl-ctrl-bottom-right.active {
+  opacity: 0;
+  transition-delay: 0s;
+  /*transition-timing-function: easeInExpo;*/
+}
         
 #outside { 
   position: absolute;
