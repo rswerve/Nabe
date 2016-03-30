@@ -7,11 +7,21 @@
   padding-bottom: 150px;
   /*width: 100%;*/
   /*max-width: 1200px;*/
-  background-color: #858585;
-  /*background-color: #dedede;*/
-
+  /*background-color: #858585;*/
+  background-color: #333333;
 
 }
+
+#nabe {
+  position: fixed;
+  height: 80px;
+  top: 0px;
+  left: 80px;
+  color: #dae313;
+  font-family: 'Bad Script', cursive;
+  font-size: 54px;
+}
+
 
 body { 
   margin:0; padding:0; 
@@ -53,8 +63,9 @@ body {
   top: 100px;
   padding-left: 30px;
   padding-top: 20px;
-  color: white;
-  background-color: yellow;
+  font-family: 'Open Sans', sans-serif;
+  color: #EDFF7A;
+  /*background-color: yellow;*/
   /*float: right;*/
   /*top: 10px; bottom: 0px; left: 10px; */
   /*background-color: #B9BAA9;*/
@@ -114,6 +125,30 @@ header {
 
 .listBlocks {
     list-style-type: none;
+}
+
+nav {
+  font-family: 'Bad Script', cursive;
+  color: #dae313;
+  padding-right: 15px;
+  font-size: 24px;
+}
+
+nav a:link {
+    color: #dae313;
+}
+
+nav a:visited {
+    color: #dae313;
+}
+
+nav a:hover {
+    color: #dae313;
+    text-decoration: underline;
+}
+
+nav a:active {
+    color: #dae313;
 }
 
 /*input[type="checkbox"] {
