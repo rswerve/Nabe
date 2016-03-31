@@ -12,6 +12,27 @@ myApp.controller('sideController', function($scope, sideFactory, detailFactory){
     }
   }
 
+    $scope.checkCheckboxes = function(){
+    if (map.getLayoutProperty ('ba_percent', 'visibility') === 'visible'){
+      $scope.ba_percent = true
+    }
+    if (map.getLayoutProperty ('ma_percent', 'visibility') === 'visible'){
+      $scope.ma_percent = true
+    }
+    if (map.getLayoutProperty ('walk_or_bike_25', 'visibility') === 'visible'){
+      $scope.walk_or_bike_25 = true
+    }
+    if (map.getLayoutProperty ('rural_400', 'visibility') === 'visible'){
+      $scope.rural_400 = true
+    }
+    if (map.getLayoutProperty ('single_45', 'visibility') === 'visible'){
+      $scope.single_45 = true
+    }
+
+  }
+
+  $scope.checkCheckboxes()
+
   $scope.logout = function() {
     auth.signout();
     store.remove('profile');
