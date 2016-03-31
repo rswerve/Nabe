@@ -1,7 +1,7 @@
 myApp.factory('detailFactory', function($http, $q){
   var service = {}
-  service.tract
-  service.word = 'from the detail factory'
+  // service.tract
+  // service.word = 'from the detail factory'
 
 
 
@@ -36,6 +36,17 @@ myApp.factory('detailFactory', function($http, $q){
     return $http({
       method: 'GET',
       url: '/instagram',
+      params: instaCoords
+    })
+    .then(function(data){
+      return data
+    })
+  }
+
+  service.tracts = function(instaCoords){
+    return $http({
+      method: 'GET',
+      url: '/tracts',
       params: instaCoords
     })
     .then(function(data){

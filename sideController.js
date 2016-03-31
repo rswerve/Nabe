@@ -13,6 +13,7 @@ myApp.controller('sideController', function($scope, sideFactory, detailFactory){
   }
 
     $scope.checkCheckboxes = function(){
+      console.log('I should come after is loaded')
     if (map.getLayoutProperty ('ba_percent', 'visibility') === 'visible'){
       $scope.ba_percent = true
     }
@@ -31,7 +32,11 @@ myApp.controller('sideController', function($scope, sideFactory, detailFactory){
 
   }
 
-  $scope.checkCheckboxes()
+  if (map.loaded) {
+    console.log('is loaded')
+    console.log('property ', (map.getLayoutProperty ('ba_percent', 'visibility')))
+    $scope.checkCheckboxes()
+  }
 
   $scope.logout = function() {
     auth.signout();

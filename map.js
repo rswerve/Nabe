@@ -1,4 +1,4 @@
-
+console.log('path ', window.location.hash)
 mapboxgl.accessToken = 'pk.eyJ1IjoiYXRpZ2hpIiwiYSI6ImNpbG43OTRlcjAyZ2l1aG0xdnIxZGliczcifQ.xGmAblnDZCyuNOpFLWfT9Q';
 var map = new mapboxgl.Map({
     container: 'map', // container id
@@ -12,8 +12,8 @@ map.addControl(new mapboxgl.Navigation({position: 'bottom-left'})); // no positi
 //get lat/lng from click and send those coordinates to tracts route in server.js
 map.on('click', function(data) {
 
-  var lngLat = {lng: data.lngLat.lng, lat:data.lngLat.lat}
-  var ireCoords = [data.lngLat.lat, data.lngLat.lng]
+  // var lngLat = {lng: data.lngLat.lng, lat:data.lngLat.lat}
+  // var ireCoords = [data.lngLat.lat, data.lngLat.lng]
   var lng = data.lngLat.lng
   var lat = data.lngLat.lat
   var detailUrl = '/#/detail/' + lat + '/' + lng
@@ -29,15 +29,15 @@ map.on('click', function(data) {
     .addTo(map);
   }
 
-  $.ajax({
-    url: '/tracts',
-    type: 'GET',
-    data: lngLat,
-    dataType: 'json',
-    success: function(response){
-      angular.element(document.getElementById('outside')).scope().$$childHead.setTract(response)
-    }
-  })
+  // $.ajax({
+  //   url: '/tracts',
+  //   type: 'GET',
+  //   data: lngLat,
+  //   dataType: 'json',
+  //   success: function(response){
+  //     angular.element(document.getElementById('outside')).scope().$$childHead.setTract(response)
+  //   }
+  // })
 
 });
 
