@@ -8,7 +8,6 @@ myApp.factory('detailFactory', function($http, $q){
   service.censusIre = function(coords){
     return $q(function(resolve, reject){
       ire_census.do_with_contains_results(coords, function(data){
-      // console.log('factory ire ', data)
       resolve(data)
     })
   })
@@ -17,7 +16,6 @@ myApp.factory('detailFactory', function($http, $q){
   service.censusIreData = function(tract){
     return $q(function(resolve, reject){
       ire_census.do_with_sf1_data(tract, function(data){
-      // console.log('factory ireData ', data.data['2010'])
       resolve(data)
     })
   })

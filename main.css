@@ -5,9 +5,6 @@
   display: block;
   overflow: hidden;
   padding-bottom: 150px;
-  /*width: 100%;*/
-  /*max-width: 1200px;*/
-  /*background-color: #858585;*/
   background-color: #333333;
 
 }
@@ -28,10 +25,8 @@ body {
 }
         
 #map { 
-  /*position: absolute; */
   height: 700px;
   width: 65%;
-  /*width: 700px;*/
   top: 100px;
   perspective: 800px;
 
@@ -55,23 +50,18 @@ body {
 .mapboxgl-ctrl-bottom-right {
   opacity: 1;
    transition: opacity 1s;
-   /*transition-timing-function: easeOutExpo;*/
     transition-delay: .7s;
-   /*-moz-transition: opacity 1s ease-in-out;
-   -webkit-transition: opacity 1s ease-in-out;*/
 }
 
 .mapboxgl-ctrl-bottom-right.active {
   opacity: 0;
   transition-delay: 0s;
-  /*transition-timing-function: easeInExpo;*/
 }
         
 #outside { 
   position: absolute;
   overflow: auto;
   height: 600px;
-  /*width: 500px;*/
   width: 25%;
   left: 65%;
   top: 100px;
@@ -79,18 +69,12 @@ body {
   padding-top: 20px;
   font-family: 'Open Sans', sans-serif;
   color: #EDFF7A;
-  /*background-color: yellow;*/
-  /*float: right;*/
-  /*top: 10px; bottom: 0px; left: 10px; */
-  /*background-color: #B9BAA9;*/
-  /*background-color: #dedede;*/
   transition: 1s;
   transition-timing-function: easeOutCubic;
 }
 
 #outside.active {
   overflow: auto;
-  /*height: 300px*/
   width: 45%;
   left: 55%;
   top: 150px;
@@ -102,22 +86,11 @@ body {
   clear: both;
 }
 
-/*#placeName {
-  color: white;
-}*/
-
-/*.clickOutside {
-  width: 45%;
-  top: 50px;
-  padding: 30px;
-  background-color: #B9BAA9;
-}*/
-
-        
-header {
-  font-size: 36px; 
-  font-family: 'Papyrus'
+#popDetail {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
 }
+
 
 #yelpblock {
   position: relative;
@@ -213,10 +186,3 @@ nav li {
   padding-right: 30px;
 }
 
-
-/*input[type="checkbox"] {
-    width: 120px;
-    margin-left: 35px;
-    display: block;
-}
-*/
