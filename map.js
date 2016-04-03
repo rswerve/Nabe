@@ -47,3 +47,7 @@ $('#map').on('click', '#popDetail', function() {
     tooltip.remove()
 });
 
+// if ($('#testbox').is(':checked')){
+  $('#testbox').css('color', 'blue')
+// }
+
