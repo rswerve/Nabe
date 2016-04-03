@@ -2,7 +2,13 @@ myApp.controller('sideController', function($scope, sideFactory, detailFactory){
   $scope.setTract = function(tract){
     detailFactory.tract = tract.toString()
   }
-  $scope.factWord = detailFactory.word
+  // $scope.ba_percent = false
+  // $scope.checkTruth = function(){
+  //   if ($scope.ba_percent === true){
+  //     map.setLayoutProperty ('ba_percent', 'visibility', 'visible')
+  //   }
+  // }
+  // $scope.factWord = detailFactory.word
   $scope.change = function(name){
     var layer = name.srcElement.id
     if (map.getLayoutProperty (layer, 'visibility') === 'none'){
@@ -13,7 +19,6 @@ myApp.controller('sideController', function($scope, sideFactory, detailFactory){
   }
 
     $scope.checkCheckboxes = function(){
-      console.log('I should come after is loaded')
     if (map.getLayoutProperty ('ba_percent', 'visibility') === 'visible'){
       $scope.ba_percent = true
     }
@@ -29,14 +34,12 @@ myApp.controller('sideController', function($scope, sideFactory, detailFactory){
     if (map.getLayoutProperty ('single_45', 'visibility') === 'visible'){
       $scope.single_45 = true
     }
-
   }
 
-  if (map.loaded) {
-    console.log('is loaded')
-    console.log('property ', (map.getLayoutProperty ('ba_percent', 'visibility')))
+  if (map.getLayer('ba_percent')){
     $scope.checkCheckboxes()
   }
+  
 
   $scope.logout = function() {
     auth.signout();

@@ -49,6 +49,12 @@ myApp.controller('detailController',  function($scope, detailFactory, sideFactor
     })
   }
 
+  $scope.toggleYelp = function(){
+    yelp = !yelp
+    instagram = true
+  }
+
+
   // $scope.logout = function() {
   //   auth.signout();
   //   store.remove('profile');

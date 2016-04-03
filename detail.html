@@ -7,7 +7,7 @@
 
 <nav>
   <ul>
-    <li><a href ng-click="yelp = !yelp">Yelp</a></li><li><a href ng-click="instagram = !instagram">Instagram</a></li>
+    <li><a href ng-click="yelp = !yelp; instagram===false ? instagram=true : angular.noop()">Yelp</a></li><li><a href ng-click="instagram = !instagram; yelp===false ? yelp=true : angular.noop()">Instagram</a></li>
   </ul>
 </nav>
 
@@ -16,8 +16,8 @@
     <li>
       {{business.categories[0][0]}}<br/>
       <a href={{business.url}}>{{business.name}}</a><br/>
-      <img src={{business.rating_img_url_small}}><br/>
-      <img src={{business.image_url}}>
+      <img ng-src={{business.rating_img_url_small}}><br/>
+      <img ng-src={{business.image_url}}>
     </li>
   </ul>
 </div>
@@ -25,7 +25,7 @@
 <div ng-repeat="photo in instagramData" ng-hide="instagram" id="instagramblock">
   <ul class="listBlocks">
     <li>
-      <a href={{photo.link}}><img src={{photo.images.low_resolution.url}} height="225" width="225"/></a>
+      <a href={{photo.link}}><img ng-src={{photo.images.low_resolution.url}} height="225" width="225"/></a>
     </li>
   </ul>
 </div>

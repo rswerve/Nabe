@@ -1,4 +1,3 @@
-console.log('path ', window.location.hash)
 mapboxgl.accessToken = 'pk.eyJ1IjoiYXRpZ2hpIiwiYSI6ImNpbG43OTRlcjAyZ2l1aG0xdnIxZGliczcifQ.xGmAblnDZCyuNOpFLWfT9Q';
 var map = new mapboxgl.Map({
     container: 'map', // container id
