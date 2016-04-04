@@ -1,10 +1,6 @@
 myApp.controller('detailController',  function($scope, detailFactory, sideFactory, $routeParams){
   // console.log('routeparams ', $routeParams)
-  // $scope.setTract = function(tract){
-  //   detailFactory.tract = tract.toString()
-  // }
 
-  // $scope.tract = detailFactory.tract
   $scope.coords = [$routeParams.lat, $routeParams.lng]
   $scope.yelpCoords = "" + $routeParams.lat + ',' + $routeParams.lng
   $scope.instaCoords = $routeParams
@@ -13,27 +9,43 @@ myApp.controller('detailController',  function($scope, detailFactory, sideFactor
   $scope.getTract = function(instaCoords){
     detailFactory.tracts(instaCoords)
     .then(function(data){
-      $scope.ireData(data.data)
-      $scope.ireName($scope.coords)
+      $scope.tractInfo = {
+        state: data.data.STATE,
+        county: data.data.COUNTY,
+        tract: data.data.TRACT
+         }
+      $scope.householdIncome($scope.tractInfo)
+      window.setTimeout(function(){
+        $scope.medianAge($scope.tractInfo)
+      }, 10)
+      $scope.locale($scope.instaCoords)
       $scope.yelp($scope.yelpCoords)
       $scope.instagram($scope.instaCoords)
     })
   }
 
-  $scope.ireName = function(coords){
-    detailFactory.censusIre(coords)
+  $scope.locale = function(instaCoords){
+    detailFactory.locale(instaCoords)
     .then(function(data){
-      $scope.placeName = data.objects[2].name
-      $scope.tractNumber = data.objects[4].name
+      $scope.locale = data.data.address
     })
   }
 
-  $scope.ireData = function(tract){
-    detailFactory.censusIreData(tract)
+  $scope.householdIncome = function(tractInfo){
+    tractInfo.censusVariable = "B19013_001E"
+    detailFactory.censusQuery(tractInfo)
     .then(function(data){
-      $scope.placeData = data.data['2010']
+      $scope.householdIncome = data.data[1][1]
     })
-  }  
+  }
+
+  $scope.medianAge = function(tractInfo){
+    tractInfo.censusVariable = "B01002_001E"
+    detailFactory.censusQuery(tractInfo)
+    .then(function(data){
+      $scope.medianAge = data.data[1][1]
+    })
+  }
 
   $scope.yelp = function(yelpCoords){
     detailFactory.yelp(yelpCoords)
@@ -49,6 +61,7 @@ myApp.controller('detailController',  function($scope, detailFactory, sideFactor
     })
   }
 
+  $scope.getTract($scope.instaCoords)
 
   // $scope.logout = function() {
   //   auth.signout();
@@ -56,10 +69,5 @@ myApp.controller('detailController',  function($scope, detailFactory, sideFactor
   //   store.remove('token');
   // }
   
-  $scope.getTract($scope.instaCoords)
-  // $scope.ireName($scope.coords)
-  // $scope.ireData($scope.tract)
-  // $scope.yelp($scope.yelpCoords)
-  // $scope.instagram($scope.instaCoords)
 
 })

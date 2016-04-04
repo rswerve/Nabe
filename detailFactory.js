@@ -1,24 +1,37 @@
 myApp.factory('detailFactory', function($http, $q){
   var service = {}
-  // service.tract
-  // service.word = 'from the detail factory'
 
-
-
-  service.censusIre = function(coords){
-    return $q(function(resolve, reject){
-      ire_census.do_with_contains_results(coords, function(data){
-      resolve(data)
+  service.tracts = function(instaCoords){
+    return $http({
+      method: 'GET',
+      url: '/tracts',
+      params: instaCoords
     })
-  })
+    .then(function(data){
+      return data
+    })
+  }
+  
+  service.censusQuery = function(tractInfo){
+    return $http({
+      method: 'GET',
+      url: '/census',
+      params: tractInfo
+    })
+    .then(function(data){
+      return data
+    })
   }
 
-  service.censusIreData = function(tract){
-    return $q(function(resolve, reject){
-      ire_census.do_with_sf1_data(tract, function(data){
-      resolve(data)
+  service.locale = function(instaCoords){
+    return $http({
+      method: 'GET',
+      url: '/locale',
+      params: instaCoords
     })
-  })
+    .then(function(data){
+      return data
+    })
   }
 
   service.yelp = function(yelpCoords){
@@ -43,16 +56,6 @@ myApp.factory('detailFactory', function($http, $q){
     })
   }
 
-  service.tracts = function(instaCoords){
-    return $http({
-      method: 'GET',
-      url: '/tracts',
-      params: instaCoords
-    })
-    .then(function(data){
-      return data
-    })
-  }
 
 return service
 })

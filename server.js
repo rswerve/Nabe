@@ -30,9 +30,44 @@ app.get('/tracts', function(req, res){
     if (err){
       console.error(err)
     } else {
-      console.log(response.body.result.geographies)
-      var tract_number = response.body.result.geographies['Census Tracts'][0].GEOID
-      res.end(tract_number)
+      var tract_info = response.body.result.geographies['Census Tracts'][0]
+      res.send(tract_info)
+      res.end
+    }
+  })
+})
+
+app.get('/census', function(req, res){
+  var state = req.query.state
+  var county = req.query.county
+  var tract = req.query.tract
+  var variable = req.query.censusVariable
+  var url = 'http://api.census.gov/data/2014/acs5?get=NAME,' + variable + '&for=tract:' + tract + '&in=state:' + state + '+county:' + county + '&key=249b3951604a728fb61fc82a042be38a69ae1706'
+  request
+  .get(url)
+  .end(function(err, response){
+    if (err){
+      console.error(err)
+    } else {
+      res.send(response.body)
+      res.end()
+    }
+  })
+})
+
+app.get('/locale', function(req, res){
+  console.log('request ', req)
+  var lat = req.query.lat
+  var lon = req.query.lng
+  var url = 'http://nominatim.openstreetmap.org/reverse?lat=' + lat + '&lon=' + lon + '&format=json'
+  request
+  .get(url)
+  .end(function(err, response){
+    if (err){
+      console.error(err)
+    } else {
+      res.send(response.body)
+      res.end()
     }
   })
 })

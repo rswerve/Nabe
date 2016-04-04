@@ -1,9 +1,34 @@
 
-<div id="placeName">{{placeName || 'filler'}} tract # {{tractNumber}}</div>
+<div ng-show="locale.neighbourhood">
+  Neighborhood: {{locale.neighbourhood}}</br>
+  {{locale.county}}<br/>  
+  {{locale.city}}, {{locale.state}} {{locale.postcode}}
+</div>
+
+<div ng-show="locale.city && !locale.neighbourhood">
+  {{locale.county}}<br/>  
+  {{locale.city}}, {{locale.state}} {{locale.postcode}}
+</div>
+
+<div ng-show="locale.village">
+  {{locale.county}}<br/>  
+  {{locale.village}}, {{locale.state}} {{locale.postcode}}
+</div>
+
+<div ng-show="locale.hamlet">
+  {{locale.county}}<br/>  
+  {{locale.hamlet}}, {{locale.state}} {{locale.postcode}}
+</div>
+
+<div ng-show="locale.county && !locale.village && !locale.city && !locale.hamlet">
+  {{locale.county}}<br/>  
+  {{locale.state}} {{locale.postcode}}
+</div>
+
 
 <ul class="placeDetails">
-  <li><i class="fa fa-users fa-fw"></i> Population: {{placeData.P1.P001001}}</li>
-  <li><i class="fa fa-hourglass-half"></i> Median Age: {{placeData.P13.P013001}}</li>
+  <li><i class="fa fa-usd"></i> Household Income: {{householdIncome}}</li>
+  <li><i class="fa fa-hourglass-half"></i> Median Age: {{medianAge}}</li>
 </ul>
 
 <nav>

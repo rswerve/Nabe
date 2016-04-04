@@ -2,13 +2,7 @@ myApp.controller('sideController', function($scope, sideFactory, detailFactory){
   $scope.setTract = function(tract){
     detailFactory.tract = tract.toString()
   }
-  // $scope.ba_percent = false
-  // $scope.checkTruth = function(){
-  //   if ($scope.ba_percent === true){
-  //     map.setLayoutProperty ('ba_percent', 'visibility', 'visible')
-  //   }
-  // }
-  // $scope.factWord = detailFactory.word
+
   $scope.change = function(name){
     var layer = name.srcElement.id
     if (map.getLayoutProperty (layer, 'visibility') === 'none'){
