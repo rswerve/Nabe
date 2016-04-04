@@ -1,6 +1,6 @@
 
 <div ng-show="locale.neighbourhood">
-  {{locale.city || locale.village}}, {{locale.state}} {{locale.postcode}}<br/>
+  {{locale.city || locale.village || locale.town}}, {{locale.state}} {{locale.postcode}}<br/>
   {{locale.county}}<br/>  
   Neighborhood: {{locale.neighbourhood}}
 </div>
@@ -15,12 +15,17 @@
   {{locale.county}}
 </div>
 
+<div ng-show="locale.town && !locale.neighbourhood">
+  {{locale.town}}, {{locale.state}} {{locale.postcode}}<br/>  
+  {{locale.county}}
+</div>
+
 <div ng-show="locale.hamlet">
   {{locale.hamlet}}, {{locale.state}} {{locale.postcode}}<br/>  
   {{locale.county}}
 </div>
 
-<div ng-show="locale.county && !locale.village && !locale.city && !locale.hamlet">
+<div ng-show="locale.county && !locale.village && !locale.city && !locale.hamlet && !locale.town">
   {{locale.county}}, {{locale.state}} {{locale.postcode}}
   
 </div>

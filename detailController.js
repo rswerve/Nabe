@@ -28,6 +28,7 @@ myApp.controller('detailController',  function($scope, detailFactory, sideFactor
     detailFactory.locale(instaCoords)
     .then(function(data){
       $scope.locale = data.data.address
+      console.log($scope.locale)
     })
   }
 
