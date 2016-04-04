@@ -25,6 +25,11 @@
   {{locale.county}}
 </div>
 
+<div ng-show="locale.locality">
+  {{locale.locality}}, {{locale.state}} {{locale.postcode}}<br/>  
+  {{locale.county}}
+</div>
+
 <div ng-show="locale.county && !locale.village && !locale.city && !locale.hamlet && !locale.town">
   {{locale.county}}, {{locale.state}} {{locale.postcode}}
   
