@@ -1,4 +1,5 @@
-<div id="placeName">{{placeName}} tract # {{tractNumber}}</div>
+
+<div id="placeName">{{placeName || 'filler'}} tract # {{tractNumber}}</div>
 
 <ul class="placeDetails">
   <li><i class="fa fa-users fa-fw"></i> Population: {{placeData.P1.P001001}}</li>
@@ -7,28 +8,30 @@
 
 <nav>
   <ul>
-    <li><a href ng-click="yelp = !yelp; instagram===false ? instagram=true : angular.noop()">Yelp</a></li><li><a href ng-click="instagram = !instagram; yelp===false ? yelp=true : angular.noop()">Instagram</a></li>
+    <li><a href ng-click="yelp = !yelp; wrapper = true; instagram===false ? instagram=true : angular.noop()">Yelp</a></li><li><a href ng-click="instagram = !instagram; wrapper = true; yelp===false ? yelp=true : angular.noop()">Instagram</a></li>
   </ul>
 </nav>
+<!-- wrapper is a workaround for flickering on load
+ng-cloak did nothing.  nothing! -->
+<div ng-show="wrapper">
 
-<div ng-repeat="business in yelpData" ng-hide="yelp" id="yelpblock">
-  <ul class="listBlocks">
-    <li>
-      {{business.categories[0][0]}}<br/>
-      <a href={{business.url}}>{{business.name}}</a><br/>
-      <img ng-src={{business.rating_img_url_small}}><br/>
-      <img ng-src={{business.image_url}}>
-    </li>
-  </ul>
-</div>
+  <div ng-repeat="business in yelpData" ng-hide="yelp" class="yelper" id="yelpblock">
+    <ul class="listBlocks">
+      <li>
+        {{business.categories[0][0]}}<br/>
+        <a href={{business.url}}>{{business.name}}</a><br/>
+        <img ng-src={{business.rating_img_url_small}}><br/>
+        <img ng-src={{business.image_url}}>
+      </li>
+    </ul>
+  </div>
 
-<div ng-repeat="photo in instagramData" ng-hide="instagram" id="instagramblock">
-  <ul class="listBlocks">
-    <li>
-      <a href={{photo.link}}><img ng-src={{photo.images.low_resolution.url}} height="225" width="225"/></a>
-    </li>
-  </ul>
-</div>
-
+  <div ng-repeat="photo in instagramData" ng-hide="instagram" class="insty" id="instagramblock">
+    <ul class="listBlocks">
+      <li>
+        <a href={{photo.link}}><img ng-src={{photo.images.low_resolution.url}} height="225" width="225"/></a>
+      </li>
+    </ul>
+  </div>
 
 </div>

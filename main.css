@@ -8,6 +8,36 @@
   background-color: #333333;
 }
 
+.ng-hide-add, .ng-hide-remove {
+     /*ensure visibility during the transition */
+    display: inline-block !important; 
+     /*yes, important */
+}
+
+.yelper.ng-hide {
+  opacity: 0;
+}
+
+.yelper.ng-hide-add {
+  transition: 100ms;
+}
+
+.yelper.ng-hide-remove {
+  transition: 300ms;
+}
+
+.insty.ng-hide {
+  opacity: 0;
+}
+
+.insty.ng-hide-add {
+  transition: 100ms;
+}
+
+.insty.ng-hide-remove {
+  transition: 300ms;
+}
+
 .ba {
   background-color: #d7f2f5;
   opacity: .6;
@@ -238,6 +268,5 @@ nav li {
 /*input[type="checkbox"] {
     width: 20px;
     /*margin-left: 35px;
-    display: block;*/
+    display: block;
 /*}
-*/

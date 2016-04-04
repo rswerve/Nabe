@@ -1,4 +1,4 @@
-var myApp = angular.module("myApp", ['ngRoute', 'auth0', 'angular-storage', 'angular-jwt'])
+var myApp = angular.module("myApp", ['ngRoute', 'ngAnimate', 'auth0', 'angular-storage', 'angular-jwt'])
 
 myApp.config(function($routeProvider){
   $routeProvider

@@ -30,6 +30,7 @@ app.get('/tracts', function(req, res){
     if (err){
       console.error(err)
     } else {
+      console.log(response.body.result.geographies)
       var tract_number = response.body.result.geographies['Census Tracts'][0].GEOID
       res.end(tract_number)
     }
