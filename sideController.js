@@ -4,7 +4,7 @@ myApp.controller('sideController', function($scope, sideFactory, detailFactory){
   }
 
   $scope.change = function(name){
-    var layer = name.srcElement.id
+    var layer = name.target.id
     if (map.getLayoutProperty (layer, 'visibility') === 'none'){
     map.setLayoutProperty (layer, 'visibility', 'visible')
     } else {

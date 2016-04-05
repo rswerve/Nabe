@@ -56,7 +56,6 @@ app.get('/census', function(req, res){
 })
 
 app.get('/locale', function(req, res){
-  console.log('request ', req)
   var lat = req.query.lat
   var lon = req.query.lng
   var url = 'http://nominatim.openstreetmap.org/reverse?lat=' + lat + '&lon=' + lon + '&format=json'

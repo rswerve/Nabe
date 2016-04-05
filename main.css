@@ -42,7 +42,8 @@
   background-color: #d7f2f5;
   opacity: .6;
   color: black;
-  width: fit-content;
+  width: -moz-fit-content;
+  width: -webkit-fit-content;
   margin: 3px 0px 3px 0px;
   border-radius: 5px;
   transition: 1s;
@@ -52,7 +53,8 @@
   background-color: #87d7de;
   opacity: .6;
   color: black;
-  width: fit-content;
+  width: -moz-fit-content;
+  width: -webkit-fit-content;
   margin: 3px 0px 3px 0px;
   border-radius: 5px;
   transition: 1s;
@@ -62,7 +64,8 @@
   background-color: #33c922;
   opacity: .6;
   color: black;
-  width: fit-content;
+  width: -moz-fit-content;
+  width: -webkit-fit-content;
   margin: 3px 0px 3px 0px;
   border-radius: 5px;
   transition: 1s;
@@ -72,7 +75,8 @@
   background-color: #e5ed50;
   opacity: .6;
   color: black;
-  width: fit-content;
+  width: -moz-fit-content;
+  width: -webkit-fit-content;
   margin: 3px 0px 3px 0px;
   border-radius: 5px;
   transition: 1s;
@@ -82,7 +86,8 @@
   background-color: #f31215;
   opacity: .6;
   color: black;
-  width: fit-content;
+  width: -moz-fit-content;
+  width: -webkit-fit-content;
   margin: 3px 0px 3px 0px;
   border-radius: 5px;
   transition: 1s;
