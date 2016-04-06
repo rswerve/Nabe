@@ -1,4 +1,3 @@
-
 <!-- how many kinds of places are there?  many kinds of places -->
 <div ng-show="locale.neighbourhood">
   {{locale.city || locale.village || locale.town}}, {{locale.state}} {{locale.postcode}}<br/>
@@ -38,8 +37,8 @@
 
 
 <ul class="placeDetails">
-  <li><i class="fa fa-usd"></i> Household Income: {{householdIncome}}</li>
-  <li><i class="fa fa-hourglass-half"></i> Median Age: {{medianAge}}</li>
+  <li><i class="fa fa-usd"></i> Household Income: {{householdIncome || 'loading...'}}</li>
+  <li><i class="fa fa-hourglass-half"></i> Median Age: {{medianAge || 'loading...'}}</li>
 </ul>
 
 

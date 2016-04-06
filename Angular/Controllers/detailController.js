@@ -5,7 +5,7 @@ myApp.controller('detailController',  function($scope, detailFactory, sideFactor
   $scope.yelpCoords = "" + $routeParams.lat + ',' + $routeParams.lng
   $scope.instaCoords = $routeParams
 
-  //need the tract info before making census calls
+  //get tract info before making census calls
   //so subsequent calls must follow the promise being fulfilled
   $scope.getTract = function(instaCoords){
     detailFactory.tracts(instaCoords)
