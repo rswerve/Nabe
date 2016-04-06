@@ -1,5 +1,5 @@
 <div>See which places have more...</div>
-
+<!-- each id matches a map layer so that the checkbox can activate it in the controller -->
 <div ng-class="{'ba': ba_percent}"><input type="checkbox" ng-click="change($event)" ng-model="ba_percent" id="ba_percent"/><label> people with BAs&nbsp;</label></div>
 <div ng-class="{'ma': ma_percent}"><input type="checkbox" ng-click="change($event)" ng-model="ma_percent" id="ma_percent"/><label> people with MAs&nbsp;</label></div>
 <div ng-class="{'green': walk_or_bike_25}"><input type="checkbox" ng-click="change($event)" ng-model="walk_or_bike_25" id="walk_or_bike_25"/><label> green commuters&nbsp;</label></div>

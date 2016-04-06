@@ -1,4 +1,5 @@
 
+<!-- how many kinds of places are there?  many kinds of places -->
 <div ng-show="locale.neighbourhood">
   {{locale.city || locale.village || locale.town}}, {{locale.state}} {{locale.postcode}}<br/>
   {{locale.county}}<br/>  
@@ -30,7 +31,7 @@
   {{locale.county}}
 </div>
 
-<div ng-show="locale.county && !locale.village && !locale.city && !locale.hamlet && !locale.town">
+<div ng-show="locale.county && !locale.village && !locale.city && !locale.hamlet && !locale.town && !locale.locality">
   {{locale.county}}, {{locale.state}} {{locale.postcode}}
   
 </div>
@@ -41,11 +42,14 @@
   <li><i class="fa fa-hourglass-half"></i> Median Age: {{medianAge}}</li>
 </ul>
 
+
 <nav>
   <ul>
+    <!-- show or hide the clicked element while hiding the other(s) if they're showing -->
     <li><a href ng-click="yelp = !yelp; wrapper = true; instagram===false ? instagram=true : angular.noop()">Yelp</a></li><li><a href ng-click="instagram = !instagram; wrapper = true; yelp===false ? yelp=true : angular.noop()">Instagram</a></li>
   </ul>
 </nav>
+
 <!-- wrapper is a workaround for flickering on load
 ng-cloak did nothing.  nothing! -->
 <div ng-show="wrapper">

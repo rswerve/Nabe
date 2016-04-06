@@ -1,11 +1,12 @@
 myApp.controller('detailController',  function($scope, detailFactory, sideFactory, $routeParams){
-  // console.log('routeparams ', $routeParams)
 
+  //parse URL params into lat/lng format each method requires
   $scope.coords = [$routeParams.lat, $routeParams.lng]
   $scope.yelpCoords = "" + $routeParams.lat + ',' + $routeParams.lng
   $scope.instaCoords = $routeParams
 
-
+  //need the tract info before making census calls
+  //so subsequent calls must follow the promise being fulfilled
   $scope.getTract = function(instaCoords){
     detailFactory.tracts(instaCoords)
     .then(function(data){
@@ -15,6 +16,9 @@ myApp.controller('detailController',  function($scope, detailFactory, sideFactor
         tract: data.data.TRACT
          }
       $scope.householdIncome($scope.tractInfo)
+      //census queries use the same server route with different variables
+      //setTimeout is critical; otherwise the previous calls get clobbered
+      //and all the calls return data for the same variable
       window.setTimeout(function(){
         $scope.medianAge($scope.tractInfo)
       }, 10)
@@ -28,10 +32,10 @@ myApp.controller('detailController',  function($scope, detailFactory, sideFactor
     detailFactory.locale(instaCoords)
     .then(function(data){
       $scope.locale = data.data.address
-      // console.log($scope.locale)
     })
   }
 
+  //add census variable to tractInfo object before making request
   $scope.householdIncome = function(tractInfo){
     tractInfo.censusVariable = "B19013_001E"
     detailFactory.censusQuery(tractInfo)
@@ -40,6 +44,7 @@ myApp.controller('detailController',  function($scope, detailFactory, sideFactor
     })
   }
 
+  //add census variable to tractInfo object before making request
   $scope.medianAge = function(tractInfo){
     tractInfo.censusVariable = "B01002_001E"
     detailFactory.censusQuery(tractInfo)
@@ -62,13 +67,7 @@ myApp.controller('detailController',  function($scope, detailFactory, sideFactor
     })
   }
 
-  $scope.getTract($scope.instaCoords)
-
-  // $scope.logout = function() {
-  //   auth.signout();
-  //   store.remove('profile');
-  //   store.remove('token');
-  // }
-  
+  //kick everything off on view load
+  $scope.getTract($scope.instaCoords)  
 
 })

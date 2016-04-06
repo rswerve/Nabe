@@ -1,52 +1,12 @@
-# Project Name
+# Nabe
 
-> Pithy project description
+> Data-driven location scouting.  Click around, get place info.
+> Choropleth data for Illinois, details available nationwide.
+> Much more to come.
 
-## Team
+## Details
 
-  - __Product Owner__: teamMember
-  - __Scrum Master__: teamMember
-  - __Development Team Members__: teamMember, teamMember
+> Built with Mapbox and Angular, with Express on the back end.
+> And lots of CSS love.
 
-## Table of Contents
-
-1. [Usage](#Usage)
-1. [Requirements](#requirements)
-1. [Development](#development)
-    1. [Installing Dependencies](#installing-dependencies)
-    1. [Tasks](#tasks)
-1. [Team](#team)
-1. [Contributing](#contributing)
-
-## Usage
-
-> Some usage instructions
-
-## Requirements
-
-- Node 0.10.x
-- Redis 2.6.x
-- Postgresql 9.1.x
-- etc
-- etc
-
-## Development
-
-### Installing Dependencies
-
-From within the root directory:
-
-```sh
-sudo npm install -g bower
-npm install
-bower install
-```
-
-### Roadmap
-
-View the project roadmap [here](LINK_TO_PROJECT_ISSUES)
-
-
-## Contributing
-
-See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidelines.
+> Data is from the US Census, OpenStreetMap's Nominatim API, and Yelp and Instagram.

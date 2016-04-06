@@ -19,7 +19,7 @@ app.get('/', function(req, res){
   res.sendFile(__dirname+'index.html')
 })
 
-// receive lat/lng from click handler and send to census for tract ID
+// receive lat/lng from click handler and send to census for tract/county/state codes
 app.get('/tracts', function(req, res){
   var lng = req.query.lng
   var lat = req.query.lat
@@ -37,12 +37,13 @@ app.get('/tracts', function(req, res){
   })
 })
 
+// query the census for the given tract with whatever variable is passed in
 app.get('/census', function(req, res){
   var state = req.query.state
   var county = req.query.county
   var tract = req.query.tract
   var variable = req.query.censusVariable
-  var url = 'http://api.census.gov/data/2014/acs5?get=NAME,' + variable + '&for=tract:' + tract + '&in=state:' + state + '+county:' + county + '&key=249b3951604a728fb61fc82a042be38a69ae1706'
+  var url = 'http://api.census.gov/data/2014/acs5?get=NAME,' + variable + '&for=tract:' + tract + '&in=state:' + state + '+county:' + county + '&key=' + config.censusKey
   request
   .get(url)
   .end(function(err, response){
@@ -55,8 +56,8 @@ app.get('/census', function(req, res){
   })
 })
 
+//get place name and zip from openstreetmap
 app.get('/locale', function(req, res){
-  console.log('request ', req)
   var lat = req.query.lat
   var lon = req.query.lng
   var url = 'http://nominatim.openstreetmap.org/reverse?lat=' + lat + '&lon=' + lon + '&format=json'
@@ -72,7 +73,7 @@ app.get('/locale', function(req, res){
   })
 })
 
-
+//query yelp for local food options
 app.get('/yelp', function(req, res){
  var ll = req.query.coordinates
  config.yelp.search({ term: 'food', ll: ll })
@@ -85,6 +86,7 @@ app.get('/yelp', function(req, res){
   })
 })
 
+//query instagram for latest photos at location
 app.get('/instagram', function(req, res){
   Instagram.media.search({
     lat: req.query.lat,

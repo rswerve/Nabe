@@ -1,6 +1,7 @@
 myApp.factory('detailFactory', function($http, $q){
   var service = {}
 
+  //get tract/county/state codes
   service.tracts = function(instaCoords){
     return $http({
       method: 'GET',
@@ -11,7 +12,8 @@ myApp.factory('detailFactory', function($http, $q){
       return data
     })
   }
-  
+  //get census data for chosen variable
+  //variable added to tractInfo object by controller
   service.censusQuery = function(tractInfo){
     return $http({
       method: 'GET',
@@ -23,6 +25,7 @@ myApp.factory('detailFactory', function($http, $q){
     })
   }
 
+  //openstreetmap locale data
   service.locale = function(instaCoords){
     return $http({
       method: 'GET',
