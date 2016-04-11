@@ -10,3 +10,7 @@
 > And lots of CSS love.
 
 > Data is from the US Census, OpenStreetMap's Nominatim API, and Yelp and Instagram.
+
+##Team
+
+> A solo project by Mazdak Atighi.
